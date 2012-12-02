@@ -251,10 +251,8 @@ public:
   void dumbData(){
     for (std::map<int, std::vector<int> >::const_iterator it = groupsFrom.begin(); it != groupsFrom.end(); ++it) {
       int groupId = it->first;
-      groupId = groupId;
       for (size_t j = 0; j < it->second.size(); ++j) {
         int obsid = it->second[j];
-        obsid = obsid;
         //cout << "##########" << groupId << " "<<  obsid <<endl;
       }
     }
@@ -266,7 +264,6 @@ public:
 
     for (std::map<int, std::vector<int> >::const_iterator it = groupsFrom.begin(); it != groupsFrom.end(); ++it) {
       int groupId = it->first;
-      groupId = groupId;
 
       // sort by and group by time
       std::map <int, std::vector<ObsPos*> > obsidInTime; // map <time, obs>. could be multiple obsid in a time
@@ -325,7 +322,6 @@ public:
         prevTime = cur->first;
         prevObs = cur->second;
       }
-      prevTime = prevTime;
       //csvGr.written(::sprintf (csvGr.curbuf(), ")\n"));
     }
     //csvGr.close ();

@@ -1126,7 +1126,6 @@ public:
                 found = true;
             }
         }
-        found = found;  // to remove release-build warning
         assert(found);
         _nPreceding = ((boost::shared_ptr<OperatorParamPhysicalExpression>&)_parameters[1])->getExpression()->evaluate().getInt64();
         _nFollowing = ((boost::shared_ptr<OperatorParamPhysicalExpression>&)_parameters[2])->getExpression()->evaluate().getInt64();

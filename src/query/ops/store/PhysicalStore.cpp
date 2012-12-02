@@ -161,7 +161,6 @@ class PhysicalStore: public PhysicalOperator
         _lock->setArrayVersionId(_arrayID);
         rc = SystemCatalog::getInstance()->updateArrayLock(_lock);
         assert(rc);
-        rc = rc; // Eliminate warnings
    }
 
     virtual void postSingleExecute(shared_ptr<Query> query)

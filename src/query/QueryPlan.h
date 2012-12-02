@@ -202,7 +202,7 @@ class PhysicalQueryPlanNode : boost::noncopyable
             }
         }
         _childNodes = newChildren;
-        assert(removed); removed = removed; // Eliminate warnings
+        assert(removed);
     }
 
     PhysOpPtr getPhysicalOperator() {
