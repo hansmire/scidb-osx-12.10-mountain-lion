@@ -46,7 +46,7 @@
 #include "array/Array.h"
 #include "system/Warnings.h"
 
-#define EXPORTED_FUNCTION extern "C" __attribute__((visibility("default")))
+#define EXPORTED_FUNCTION __attribute__((visibility("default")))
 
 namespace scidb
 {
