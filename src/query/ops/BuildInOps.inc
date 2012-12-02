@@ -352,3 +352,4 @@ PHYSICAL_BUILDIN_OPERATOR(PhysicalInsert);
 // variable_window
 LOGICAL_BUILDIN_OPERATOR(LogicalVariableWindow);
 PHYSICAL_BUILDIN_OPERATOR(PhysicalVariableWindow);
+
