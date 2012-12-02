@@ -21,3 +21,4 @@ UDT_CNV(STRING, String, char const*)
 #undef UDT_UNARY_OP
 #undef UDT_CMP_OP
 #undef UDT_CNV
+
