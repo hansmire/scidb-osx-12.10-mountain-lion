@@ -183,13 +183,13 @@ bool skipValue(T value)
 template<> inline
 bool skipValue<double>(double value)
 {
-    return isnan(value);
+    return std::isnan(value);
 }
 
 template<> inline
 bool skipValue<float>(float value)
 {
-    return isnan(value);
+    return std::isnan(value);
 }
 
 template<template <typename TS, typename TSR> class A, typename T, typename TR, bool asterisk = false>
