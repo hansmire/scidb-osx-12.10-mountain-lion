@@ -22,7 +22,7 @@
 
 cmake_minimum_required(VERSION 2.6)
 
-project(SciDB C CXX Fortran)
+project(SciDB C CXX)
 
 set(SCIDB_VERSION_MAJOR "12")
 set(SCIDB_VERSION_MINOR "10")
