@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!@PYTHON_EXECUTABLE@
 
 # Initialize, start and stop scidb in a cluster.
 #
