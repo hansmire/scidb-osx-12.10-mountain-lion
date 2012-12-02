@@ -45,35 +45,35 @@ find_package(Subversion)
 if (${CMAKE_VERSION} VERSION_GREATER 2.8 OR ${CMAKE_VERSION} VERSION_EQUAL 2.8)
     find_package(Git)
 endif()
-if(Subversion_SVN_EXECUTABLE)
-    EXECUTE_PROCESS(COMMAND ${Subversion_SVN_EXECUTABLE} info . OUTPUT_VARIABLE Subversion_INFO_OUT
-        ERROR_VARIABLE Subversion_svn_info_error RESULT_VARIABLE Subversion_svn_info_result
-        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR} OUTPUT_STRIP_TRAILING_WHITESPACE)
-    if (Subversion_svn_info_result EQUAL 0)
-        # Get version from SVN working copy by default
-        Subversion_WC_INFO(${CMAKE_SOURCE_DIR} SciDB)
-        set(SCIDB_REVISION "${SciDB_WC_REVISION}")
-        message(STATUS "Reading revision from svn: ${SCIDB_REVISION}")
-        file(WRITE "${CMAKE_BINARY_DIR}/version.txt" ${SCIDB_REVISION})
-    endif()
-endif()
-if(NOT SCIDB_REVISION AND GIT_EXECUTABLE AND EXISTS "${CMAKE_SOURCE_DIR}/.git")
-    # Get version from git-svn working copy 
-    execute_process(COMMAND ${GIT_EXECUTABLE} svn find-rev master
-        OUTPUT_VARIABLE SCIDB_REVISION
-        RESULT_VARIABLE GIT_EXEC_RES
-        OUTPUT_STRIP_TRAILING_WHITESPACE
-        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
-
-    string(COMPARE NOTEQUAL ${GIT_EXEC_RES} 0 GIT_EXEC_RES) 
-    if(${GIT_EXEC_RES})
-        MESSAGE(FATAL_ERROR "Can not invoke GIT ${GIT_EXECUTABLE}. Check binary!")
-    endif()
-    
-    message(STATUS "Reading revision from git-svn: ${SCIDB_REVISION}")
-
-    file(WRITE "${CMAKE_BINARY_DIR}/version.txt" ${SCIDB_REVISION})
-endif()
+#if(Subversion_SVN_EXECUTABLE)
+#    EXECUTE_PROCESS(COMMAND ${Subversion_SVN_EXECUTABLE} info . OUTPUT_VARIABLE Subversion_INFO_OUT
+#        ERROR_VARIABLE Subversion_svn_info_error RESULT_VARIABLE Subversion_svn_info_result
+#        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR} OUTPUT_STRIP_TRAILING_WHITESPACE)
+#    if (Subversion_svn_info_result EQUAL 0)
+#        # Get version from SVN working copy by default
+#        Subversion_WC_INFO(${CMAKE_SOURCE_DIR} SciDB)
+#        set(SCIDB_REVISION "${SciDB_WC_REVISION}")
+#        message(STATUS "Reading revision from svn: ${SCIDB_REVISION}")
+#        file(WRITE "${CMAKE_BINARY_DIR}/version.txt" ${SCIDB_REVISION})
+#    endif()
+#endif()
+#if(NOT SCIDB_REVISION AND GIT_EXECUTABLE AND EXISTS "${CMAKE_SOURCE_DIR}/.git")
+#    # Get version from git-svn working copy 
+#    execute_process(COMMAND ${GIT_EXECUTABLE} svn find-rev master
+#        OUTPUT_VARIABLE SCIDB_REVISION
+#        RESULT_VARIABLE GIT_EXEC_RES
+#        OUTPUT_STRIP_TRAILING_WHITESPACE
+#        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+#
+#    string(COMPARE NOTEQUAL ${GIT_EXEC_RES} 0 GIT_EXEC_RES) 
+#    if(${GIT_EXEC_RES})
+#        MESSAGE(FATAL_ERROR "Can not invoke GIT ${GIT_EXECUTABLE}. Check binary!")
+#    endif()
+#
+#    message(STATUS "Reading revision from git-svn: ${SCIDB_REVISION}")
+#
+#    file(WRITE "${CMAKE_BINARY_DIR}/version.txt" ${SCIDB_REVISION})
+#endif()
 if(NOT SCIDB_REVISION AND EXISTS "${CMAKE_SOURCE_DIR}/version.txt")
     # Get version from plain source tarball/directory    
     file(READ "${CMAKE_SOURCE_DIR}/version.txt" SCIDB_REVISION)
