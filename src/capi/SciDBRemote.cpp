@@ -149,6 +149,7 @@ private:
 
 std::string getModuleFileName()
 {
+/*
     // read the full name, e.g. '/tmp/dir/myfile'
     const size_t maxLength = PATH_MAX+NAME_MAX;
     char exepath[maxLength+1] = {0};
@@ -156,10 +157,13 @@ std::string getModuleFileName()
     if (len==-1 || len==0) return exepath;
     exepath[len]=0;
     return exepath;
+*/
+  return "/opt/scidb/12.10/bin/iquery";
 }
 
 std::string getCommandLineOptions()
 {
+/*
     stringstream cmdline;
     FILE *f = fopen("/proc/self/cmdline", "rb");
     char *arg = NULL;
@@ -175,6 +179,8 @@ std::string getCommandLineOptions()
     free(arg);
     fclose(f);
     return cmdline.str();
+*/
+  return "";
 }
 
 void fillProgramOptions(std::string& programOptions)
