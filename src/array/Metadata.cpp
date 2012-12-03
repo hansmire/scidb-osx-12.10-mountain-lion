@@ -1058,7 +1058,7 @@ bool DimensionDesc::operator == (DimensionDesc const& other) const
         _endMax == other._endMax &&
         _chunkInterval == other._chunkInterval &&
         _chunkOverlap == other._chunkOverlap &&
-        _flags == other._flags;
+        _flags == other._flags &&
         _type == other._type;
 }
 
